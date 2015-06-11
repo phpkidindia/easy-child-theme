@@ -18,12 +18,13 @@ foreach ( $files as $file )
 $ect_parent = "ect_parenttheme";
 
 if (isset ( $_POST ["submit"] )) {
+	$ect_show = $_POST [$ect_parent];
 	$ect_title = $_POST['ect_childtheme'] != '' ?  $_POST['ect_childtheme'] : $ect_show.' Child';
 	$ect_url = $_POST['ect_themeurl'] != '' ?  $_POST['ect_themeurl'] : 'http://ashokg.in';
 	$ect_author = $_POST['ect_author'] !='' ? $_POST['ect_author'] : 'wpashokg' ;
 	$ect_author_url = $_POST['ect_authurl'] !='' ? $_POST['ect_authurl'] : 'http://ashokg.in';
 	
-	$ect_show = $_POST [$ect_parent];
+	
 	$dir_name = $dir . "/" . $ect_show . "-child";
 	if (file_exists ( $dir_name )) {
 		echo '<div id="message" class="error fade"><p>Child Theme ' . $dir_name . ' Already Exists.</p></div>';
